@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- when using the mode "code", it's important to specify charset utf-8 -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+
+</head>
+<body>
+    <div>
+        <textarea id="wordText"></textarea>
+        <button onclick="wgetWord()">获取音频下载地址</button>
+        <button class="clipboardClass" data-clipboard-action="cut" data-clipboard-target="#container">复制下载地址</button>
+    </div>
+    <div>
+       下载地址
+      <textarea id="container"></textarea>
+    </div>
+
+    <script>
+        var DATA = {
+            "MaybeDefaultSourceLanguageCode":"en",
+            "MaybeDefaultTargetLanguageCode":"zh-CN"
+        }
+    </script>
+    <script type="text/javascript" src="/main/dist/translate/ttk.js"></script>
+    <script type="text/javascript" src="/main/dist/clipboard/clipboard.min.js"></script>
+    <script>
+        var wgetWord = function () {
+            var wordText  = document.getElementById("wordText");
+            var container = document.getElementById("container");
+            console.log("wordText"+wordText.value)
+            var words = wordText.value.split(","); //["running","secret"];
+            var userAgent =  '--header="User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"';
+            var  wgetUrls = "";
+            for (var i = 0; i < words.length; i++) {
+                var query = words[i];
+                /**写死，String.fromCharCode(84) zo 方法上获取*/
+                yo = "435062.1886581044";
+                var token = zo(query);
+                var url = "https://translate.google.cn/translate_tts?ie=UTF-8&q="  + encodeURI(query) + "&tl=en&total=1&idx=0&textlen="+query.length + token + "&client=webapp&prev=input";
+                //console.log(url)
+                wgetUrls += "wget "+userAgent+" -O "+query+".mp3 '"+url+"' ;";
+            }
+            container.innerText = wgetUrls;
+        }
+
+        /**复制*/
+        var clipboard = new ClipboardJS('.clipboardClass');
+
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+
+    </script>
+</body>
+</html>

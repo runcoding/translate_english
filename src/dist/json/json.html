@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- when using the mode "code", it's important to specify charset utf-8 -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <link href="jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <script src="jsoneditor.min.js"></script> 
+    <style type="text/css">
+        #jsoneditor {
+          width: 800px;
+          height: 800px;
+        }
+
+    body, html {
+      font-family: "DejaVu Sans", sans-serif;
+    }
+
+    p, li {
+      width: 500px;
+      font-size: 10.5pt;
+    }
+
+    code {
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+    <div id="jsoneditor"></div>
+
+    <script>
+      function getQueryParam () {
+        /**获取url中"?"符后的字串*/
+        var url = location.search;
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var arr = str.split("&");
+            for(var i = 0; i < arr.length; i ++) {
+                var obj = arr[i].split("=");
+                theRequest[obj[0]] = decodeURIComponent(obj[1]);
+            }
+        }
+        return theRequest;
+      }
+        var jsonStr = getQueryParam().jsonStr || {};
+        // create the editor
+        var container = document.getElementById("jsoneditor");
+        var options = {
+             modes: ['text', 'code', 'tree', 'form', 'view'],
+             mode: 'code',
+             ace: ace
+         };
+        var editor = new JSONEditor(container, options);
+        
+       // console.log(base64.encode(JSON.stringify(json)));
+        var jsonCode = localStorage.getItem(jsonStr);
+         console.log(jsonCode);
+        //json = JSON.parse(jsonCode);
+        try{
+           editor.set(JSON.parse(jsonCode));
+        }catch(e){
+           editor.set(jsonCode);
+        }   
+        
+
+        // get json
+        //var json = editor.get();
+    </script>
+</body>
+</html>
