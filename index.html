@@ -14,10 +14,9 @@
 <script>
 
   var base = '';
-  if(window.location.host.indexOf("localhost") <= 0){
+  if(window.location.host.indexOf("localhost") < 0){
      base = 'translate_english/';
   }
-
    function getQueryParam () {
        /**获取url中"?"符后的字串*/
        var url = location.search;
