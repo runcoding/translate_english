@@ -33,7 +33,7 @@
    }
    var sidebar  =  base+"wiki/sidebar";
    var homepage =  base+"wiki/home.md";
-
+   var random   = getQueryParam().random || null;
     window.$docsify = {
         el: '#app',                //初始化的挂载元素
         name: '程序猿英语',//文档标题，会显示在侧边栏顶部。
@@ -61,7 +61,7 @@
                   lang = lang || '';
                   if(lang == 'json2table' || lang == 'json2tableByAlpha'){
                     code = parseJSONCode(code);
-                    return lang == 'json2tableByAlpha' ? json2tableByAlpha(code,'') : json2table(code,'');
+                    return lang == 'json2tableByAlpha' ? json2tableByAlpha(code,random) : json2table(code,'');
                   }
                   var hl = Prism.highlight(code, Prism.languages[lang] || Prism.languages.markup)
                   return  '<pre v-pre data-lang="' + lang + '"><code class="lang-' + lang

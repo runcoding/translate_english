@@ -2,6 +2,7 @@
 - 单词词频统计的dubbo、flink、jdk8、rocketmq、spring相关框架的源码，有助于大家快速掌握源码。
 - 单词读音来源[滑词](https://translate.google.cn)和[双击](http://dict.cn)。
 - [词库下载](https://pan.baidu.com/s/1cebgk2cfl-kDy8Zf6TVvng)，解压后放置在本地/storage/alpha目录
+- - 随机最多显示[10]({{baseDomain}}/?random=10)、[20]({{baseDomain}}/?random=20)、[50]({{baseDomain}}/?random=50)、[100]({{baseDomain}}/?random=100)、[200]({{baseDomain}}/?random=200)、[500]({{baseDomain}}/?random=500)、[1000]({{baseDomain}}/?random=1000)个单词
 
 ### 名词  
 ```json2tableByAlpha
