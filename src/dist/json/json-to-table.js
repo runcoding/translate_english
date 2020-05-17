@@ -10,8 +10,9 @@ var json2table = function (json, classes) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    cols.map(function(col) {
-        headerRow += '<th>' + capitalizeFirstLetter(col) + '</th>';
+    var mobile = isMobile();
+    cols.map(function(col,i) {
+        headerRow += '<th '+ (mobile && i == 2 ? 'style="display:none"' : '')+'>' + capitalizeFirstLetter(col) + '</th>';
     });
     var showTdIds = null;
     if(randomNum != null){
@@ -48,7 +49,7 @@ var json2table = function (json, classes) {
                 var rowVal = isAlpha ? '<a href="http://dict.cn/'+ rowInfo +'" target="_blank">' + rowInfo + '</a>':rowInfo;
                bodyRows += '<td onmouseover="alphaPlay(\''+ rowInfo +'\',false)" onclick="alphaPlay(\''+ rowInfo +'\',true)">' + rowVal + '</td>';
             }else {
-                bodyRows += '<td>' + rowInfo + '</td>';
+                bodyRows += '<th '+ (mobile && index == 2 ? 'style="display:none"' : '')+'>' + rowInfo + '</td>';
             }
         })
 
@@ -130,4 +131,15 @@ function randomNumBoth(arr,maxNum){
             return numArr;
         }
     }
+}
+
+var isMobile = function () {
+    var ua = navigator.userAgent;
+
+    var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+
+    isIphone =!ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+
+    isAndroid = ua.match(/(Android)\s+([\d.]+)/);
+    return isIphone || isAndroid;
 }
