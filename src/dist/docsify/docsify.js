@@ -512,6 +512,9 @@ function get(url, hasBar, headers) {
         } else {
             var content = target.response || '';
             var domain = window.location.protocol +"//"+window.location.host;
+            if(domain.indexOf("runcoding.github.io") >0){
+              domain= "https://runcoding.github.io/translate_english";
+            }
                 content = content.replaceAll('{{baseDomain}}',domain);
            var result = (cache[url] = {
             content: content,
