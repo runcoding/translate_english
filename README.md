@@ -1,6 +1,6 @@
 ## translate_english
 Java程序员阅读源码必知英语单词
-- 随机最多显示[10]({{baseDomain}}/?random=10)、[20]({{baseDomain}}/?random=20)、[50]({{baseDomain}}/?random=50)、[100]({{baseDomain}}/?random=100)、[200]({{baseDomain}}/?random=200)、[500]({{baseDomain}}/?random=500)、[1000]({{baseDomain}}/?random=1000)个单词
+- 随机最多显示[10](https://runcoding.github.io/translate_english/?random=10)、[20](https://runcoding.github.io/translate_english/?random=20)、[50](https://runcoding.github.io/translate_english/?random=50)、[100](https://runcoding.github.io/translate_english/?random=100)、[200](https://runcoding.github.io/translate_english/?random=200)、[500](https://runcoding.github.io/translate_english/?random=500)、[1000](https://runcoding.github.io/translate_english/?random=1000)个单词
 - [显示全部https://runcoding.github.io/translate_english/](https://runcoding.github.io/translate_english/)
  
 ## 使用演示 
