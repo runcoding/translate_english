@@ -46,7 +46,7 @@ var json2table = function (json, classes) {
             } 
             rowInfo = rowInfo   || row[colName];
             if(index == 0){
-                var rowVal = isAlpha ? '<a class="alpha" href="http://dict.cn/'+ rowInfo +'" target="_blank" >' + rowInfo + '</a>':rowInfo;
+                var rowVal = rowInfo;//isAlpha ? '<a class="alpha" href="http://dict.cn/'+ rowInfo +'" target="_blank" >' + rowInfo + '</a>':rowInfo;
                bodyRows += '<td onmouseover="alphaPlay(\''+ rowInfo +'\',false)" onclick="alphaPlay(\''+ rowInfo +'\',true)">' + rowVal + '</td>';
             }else {
                 bodyRows += '<th '+ (mobile && index == 2 ? 'style="display:none"' : '')+'  style="text-align:left">' + rowInfo + '</td>';
