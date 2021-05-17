@@ -51,7 +51,7 @@ var json2table = function (json, classes) {
                 }
                 var rowVal = rowInfo;//isAlpha ? '<a class="alpha" href="http://dict.cn/'+ rowInfo +'" target="_blank" >' + rowInfo + '</a>':rowInfo;
                 bodyRows += '<td ';
-                if(!mobile){
+                if( !mobile ){
                     bodyRows += ' onmouseover="alphaPlay(\''+ rowInfo +'\',false)"';
                 }
                 bodyRows += ' onclick="alphaPlay(\''+ rowInfo +'\',true)">' + rowVal + '</td>';
