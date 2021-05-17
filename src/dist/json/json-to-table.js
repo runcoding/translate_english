@@ -51,7 +51,7 @@ var json2table = function (json, classes) {
                 }
 
                 var rowVal = rowInfo;//isAlpha ? '<a class="alpha" href="http://dict.cn/'+ rowInfo +'" target="_blank" >' + rowInfo + '</a>':rowInfo;
-               bodyRows += '<td '+(mobile ? "" : 'onmouseover="alphaPlay('+ rowInfo +',false)"')+ 'onclick="alphaPlay(\''+ rowInfo +'\',true)">' + rowVal + '</td>';
+               bodyRows += '<td onclick="alphaPlay(\''+ rowInfo +'\',true)">' + rowVal + '</td>';
             }else {
                 bodyRows += '<th onclick="alphaPlay('+ mp3 +',false)" '+ (mobile && index == 2 ? 'style="display:none"' : '')+'  style="text-align:left">' + rowInfo + '</td>';
             }
